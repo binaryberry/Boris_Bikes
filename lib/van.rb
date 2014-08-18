@@ -9,12 +9,12 @@ class Van
 		self.capacity = options.fetch(:capacity, capacity)
 	end
 
-	def collect(location,van)
-		broken_bikes.times do |location, van| 
+	def collect(location)
+		location.broken_bikes.each do |broken_bike| 
 			location.release(broken_bike)
-			van.dock(broken_bike)
+			self.dock(broken_bike)
 		end
-		puts "#{van.broken_bikes}"
+	
 	end
 
 end
