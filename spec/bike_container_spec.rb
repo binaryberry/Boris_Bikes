@@ -47,7 +47,7 @@ describe BikeContainer do
 	
 
 	it "should not release a bike that is not there" do
-		expect( holder.release(bike)).to eq "Oh god what have you done"
+		expect( holder.release(bike)).to eq "sorry! this holder is empty"
 	end
 
 	it "should not release a bike when passed an argument that is not a bike at all" do
@@ -67,7 +67,7 @@ describe BikeContainer do
 		expect(holder.empty?).to be false
 		holder.release(bike)
 		expect(holder.empty?).to be true
-		expect((holder.release(bike))).to eq "Oh god what have you done"
+		expect((holder.release(bike))).to eq "sorry! this holder is empty"
 	end
 
 	it "should check how many broken bikes are available" do

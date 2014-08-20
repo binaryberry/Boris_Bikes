@@ -32,12 +32,15 @@ module BikeContainer
 	end
 
 	def release(bike)
-		raise if !bike.is_a? Bike
-		raise if empty?
-	rescue 
-		p "Oh god what have you done"
-	else
+		begin
+			raise NotABikeError unless bike.is_a? Bike
+			raise EmptyHolderError.new(message: "sorry! this holder is empty") if empty?
 		bikes.delete(bike)
+		rescue NotABikeError => e
+			e.message
+		rescue EmptyHolderError => e
+			 e.message
+		end
 	end
 
 	def full?

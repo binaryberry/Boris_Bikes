@@ -1,19 +1,16 @@
 class Person
 
 	def initialize
-		@rents_bike = false
+		@has_bike = false
 	end
 
-	def renting_bike?
-		@rents_bike
+	def has_bike?
+		@has_bike
 	end
 
 	def rents_bike!
-		@rents_bike = true
+		@has_bike = true
 	end
 
-	def returns_bike!
-		@rents_bike = false
-	end
 
 end 

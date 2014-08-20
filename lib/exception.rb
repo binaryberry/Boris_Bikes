@@ -9,3 +9,9 @@ class BikeNotSpecifiedError < StandardError
 		"That is not a bike"
 	end
 end
+
+class EmptyHolderError < Exception
+	def initialize(message: "Blah")
+		super(message)
+	end
+end
