@@ -54,10 +54,10 @@ describe BikeContainer do
 
 	it "should not dock a bike that is not there" do
 		bike = nil
-		expect( lambda{holder.dock(bike)}).to raise_error("no bike to dock")
+		expect( lambda{holder.dock(bike)}).to raise_exception(NotABikeError, "Oh god what have you done")
 	end
 	it "should not dock something that is not a bike" do
-		expect( lambda{holder.dock(:apple)}).to raise_error("no bike to dock")
+		expect( lambda{holder.dock(:apple)}).to raise_exception(NotABikeError, "Oh god what have you done")
 	end
 
 	it "should not release a bike when container holder is empty" do

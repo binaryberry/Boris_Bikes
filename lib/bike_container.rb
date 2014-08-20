@@ -1,3 +1,5 @@
+require './lib/exception'
+
 module BikeContainer
 
 	# attr_writer :capacity
@@ -21,7 +23,7 @@ module BikeContainer
 	# end
 
 	def dock(bike)
-		raise "no bike to dock"  unless bike.is_a? Bike
+		raise NotABikeError unless bike.is_a? Bike
 		raise "Station is full" if full?
 		bikes << bike
 	end

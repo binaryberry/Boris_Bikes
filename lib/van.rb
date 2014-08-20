@@ -10,8 +10,8 @@ class Van
 	end
 
 	def collect(location)
-		collect_broken(location) && return if location.class == 'DockingStation'
-		collect_available(location) && return if location.class == 'Garage'
+		collect_broken(location) if location.class == 'DockingStation'
+		collect_available(location) if location.class == 'Garage'
  	end
 
 	def collect_available(location)
