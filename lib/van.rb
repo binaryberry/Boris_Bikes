@@ -14,7 +14,27 @@ class Van
 			location.release(broken_bike)
 			self.dock(broken_bike)
 		end
-	
+	end
+
+	def drop_off(location)
+		location.class
+			drop_off_available(location) if 'DockingStation'
+			drop_off_broken(location) if 'Garage'
+
+	end
+
+	def drop_off_available(location)
+		self.available_bikes.each do |bike|
+			self.release(bike)
+			location.dock(bike)
+		end
+	end
+
+	def drop_off_broken(location)
+		self.broken_bikes.each do |bike|
+			self.release(bike)
+			location.dock(bike)
+		end
 	end
 
 end

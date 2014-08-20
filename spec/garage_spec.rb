@@ -17,5 +17,9 @@ describe Garage do
 		garage.dock(bike)
 		expect(bike.broken?).to eq false
 	end
-
+	# it "should know how many available bikes there are in the garage" do
+	# 	garage = Garage.new
+	# 	garage.dock(bike)
+	# 	expect(garage.available_bikes.count).to eq(1)	
+	# end
 end
