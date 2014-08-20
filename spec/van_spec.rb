@@ -7,7 +7,7 @@ require './lib/garage'
 describe Van do 
 
 	let(:van) 			{ Van.new(:capacity => 50) 	}
-	let(:bike) 			{ Bike.new 					}
+	let(:bike) 			{ double :bike, {:broken? => false, :is_a? => Bike}}
 	let(:broken_bike)	{ Bike.new.break! 			}
 
 
@@ -26,7 +26,7 @@ describe Van do
 	end
 
 	it "should drop off working bikes to docking station" do 
-		station = DockingStation.new
+		station = double :station
 		expect(station).to receive(:dock)
 		van.dock(bike)
 		van.drop_off(station)
