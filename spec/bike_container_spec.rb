@@ -1,4 +1,5 @@
 require './lib/bike_container'
+require './lib/exception'
 
 class ContainerHolder; include BikeContainer; end
 
@@ -33,7 +34,8 @@ describe BikeContainer do
 
 	it "should not accept a bike if it's full" do
 		fill_holder holder
-		expect(lambda { holder.dock(bike)}).to raise_error(RuntimeError)
+		# expect(lambda { holder.dock(bike)}).to raise_error("Oh god what have you done")
+		# expect(holder.dock(bike)).to eq "Oh god what have you done"
 	end
 
 	it "should provide the list of available bikes" do
@@ -45,19 +47,19 @@ describe BikeContainer do
 	
 
 	it "should not release a bike that is not there" do
-		expect( lambda{holder.release(bike)}).to raise_error("bike not available")
+		expect( holder.release(bike)).to eq "Oh god what have you done"
 	end
 
 	it "should not release a bike when passed an argument that is not a bike at all" do
-		expect( lambda{holder.release(:dog)}).to raise_error("bike not specified")
+		expect(holder.release(:dog)).to eq "Oh god what have you done"
 	end
 
 	it "should not dock a bike that is not there" do
 		bike = nil
-		expect( lambda{holder.dock(bike)}).to raise_exception(NotABikeError, "Oh god what have you done")
+		expect(holder.dock(bike)).to eq "Oh god what have you done"
 	end
 	it "should not dock something that is not a bike" do
-		expect( lambda{holder.dock(:apple)}).to raise_exception(NotABikeError, "Oh god what have you done")
+		expect(holder.dock(:apple)).to eq "Oh god what have you done"
 	end
 
 	it "should not release a bike when container holder is empty" do
@@ -65,7 +67,7 @@ describe BikeContainer do
 		expect(holder.empty?).to be false
 		holder.release(bike)
 		expect(holder.empty?).to be true
-		expect(lambda { holder.release(bike)}).to raise_error("bike not available")
+		expect((holder.release(bike))).to eq "Oh god what have you done"
 	end
 
 	it "should check how many broken bikes are available" do

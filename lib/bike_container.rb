@@ -22,15 +22,21 @@ module BikeContainer
 	# 	bikes.count
 	# end
 
-	def dock(bike)
-		raise NotABikeError unless bike.is_a? Bike
-		raise "Station is full" if full?
+	def dock(bike)	
+		raise if !bike.is_a? Bike
+		raise if full?
+	rescue
+		p "Oh god what have you done"
+	else
 		bikes << bike
 	end
 
 	def release(bike)
-		raise "bike not specified" unless bike.is_a? Bike
-		raise "bike not available" if bikes.empty?
+		raise if !bike.is_a? Bike
+		raise if empty?
+	rescue 
+		p "Oh god what have you done"
+	else
 		bikes.delete(bike)
 	end
 
