@@ -10,6 +10,19 @@ class Van
 	end
 
 	def collect(location)
+		collect_broken(location) && return if location.class == 'DockingStation'
+		collect_available(location) && return if location.class == 'Garage'
+ 	end
+
+	def collect_available(location)
+		location.available_bikes.each do |bike| 
+			location.release(bike)
+			self.dock(bike)
+		end
+	end
+	
+
+	def collect_broken(location)
 		location.broken_bikes.each do |broken_bike| 
 			location.release(broken_bike)
 			self.dock(broken_bike)

@@ -17,6 +17,7 @@ describe Van do
 
 	it "should collect broken bikes from the docking station" do
 		station = double :station
+		expect(station).to receive(:class).and_return('DockingStation')
 		expect(station).to receive(:dock).with(broken_bike).and_return([broken_bike])
 		expect(station).to receive(:broken_bikes).and_return([broken_bike])
 		expect(station).to receive(:release).with(broken_bike).and_return([broken_bike])
@@ -33,8 +34,12 @@ describe Van do
 	end
 
 	it "should collect working bikes from garage" do
-		van.dock(bike)
-		expect(lambda{ dock(van.count) } == van.available_bikes.count)
+		garage = double :garage
+		expect(garage).to receive(:class).twice.and_return('Garage')
+		expect(garage).to receive(:release).and_return(:bike)
+		expect(garage).to receive(:available_bikes).and_return([bike])
+		van.collect(garage)
+		expect(van.available_bikes.count).to eq 1
 	end
 
 	it "should drop off broken bikes to the garage" do
