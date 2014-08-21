@@ -1,4 +1,15 @@
-[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m
+[32m.[0m[32m.[0m[32m.[0m[31mF[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m
 
-Finished in 0.01318 seconds (files took 0.09701 seconds to load)
-[32m26 examples, 0 failures[0m
+Failures:
+
+  1) BikeContainer should not accept a bike if it's full
+     [31mFailure/Error: expect(lambda { holder.dock(bike)}).to raise_error("Oh god what have you done")[0m
+     [31m  expected Exception with "Oh god what have you done" but nothing was raised[0m
+     [36m# ./spec/bike_container_spec.rb:37:in `block (2 levels) in <top (required)>'[0m
+
+Finished in 0.01288 seconds (files took 0.08773 seconds to load)
+[31m23 examples, 1 failure[0m
+
+Failed examples:
+
+[31mrspec ./spec/bike_container_spec.rb:35[0m [36m# BikeContainer should not accept a bike if it's full[0m
