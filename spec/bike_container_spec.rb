@@ -49,17 +49,14 @@ describe BikeContainer do
 	end
 
 	it "should not release a bike when container holder is empty" do
-		holder.dock(bike)		
-		expect(holder.empty?).to be false
-		holder.release(bike)
 		expect(holder.empty?).to be true
 		expect((holder.release(bike))).to eq "Sorry! This holder is empty."
 	end
 
 	it "should check how many broken bikes are available" do
-		working_bike.break!
+		brokenbike2 = working_bike.break!
 		broken_bike
-		holder.dock(working_bike)
+		holder.dock(brokenbike2)
 		holder.dock(broken_bike)
 		expect(holder.broken_bikes.count).to eq 2
 	end
