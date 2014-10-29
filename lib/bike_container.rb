@@ -2,8 +2,6 @@ require './lib/exception'
 
 module BikeContainer
 
-	# attr_writer :capacity
-
 	DEFAULT_CAPACITY = 10
 
 	def bikes
