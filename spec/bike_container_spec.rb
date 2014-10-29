@@ -34,8 +34,7 @@ describe BikeContainer do
 
 	it "should not accept a bike if it's full" do
 		fill_holder holder
-		expect(lambda { holder.dock(bike)}).to raise_error("Oh god what have you done")
-		expect(holder.dock(bike)).to eq "Oh god what have you done"
+		expect{holder.dock(bike)}.to raise_error "Sorry! This holder is full."
 	end
 
 	it "should provide the list of available bikes" do
@@ -46,7 +45,7 @@ describe BikeContainer do
 	end
 
 	it "should not dock something that is not a bike" do
-		expect(holder.dock(:apple)).to eq "Oh god what have you done"
+		expect(holder.dock(:apple)).to eq "This is not a bike"
 	end
 
 	it "should not release a bike when container holder is empty" do
@@ -54,7 +53,7 @@ describe BikeContainer do
 		expect(holder.empty?).to be false
 		holder.release(bike)
 		expect(holder.empty?).to be true
-		expect((holder.release(bike))).to eq "sorry! this holder is empty"
+		expect((holder.release(bike))).to eq "Sorry! This holder is empty."
 	end
 
 	it "should check how many broken bikes are available" do
