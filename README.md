@@ -15,4 +15,10 @@ We then started pair-programming to write the first tests and make them pass.
 - Ruby
 - Rspec
 
+## What did I learn?
+- London vs. Chicago-style of testing
+- SOLID principles, in particular Single Responsibility Principle
+- Handling errors and exceptions
+- Using IRB or PRY to see the program in action
+
 ![Boris](https://github.com/binaryberry/My_Boris_Bikes/blob/master/Public/Boris_and_Schwarzy.jpg)
