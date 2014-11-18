@@ -18,6 +18,7 @@ The programme handles the interactions between the user, the docking station, th
 - Rspec
 
 ## What did I learn?
+- First experience of pair-programming
 - London vs. Chicago-style of testing
 - SOLID principles, in particular Single Responsibility Principle and Liskov Substitution Principle
 - Handling errors and exceptions
