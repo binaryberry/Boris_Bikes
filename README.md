@@ -6,7 +6,7 @@ A Ruby program modeling London's bike rental scheme, to help manage docking stat
 
 ## How was it done?
 
-After a short brief, my teammates and I used class-responsibility-collaboration cards to determine how the program would be structured, in terms of the classes we would need and their responsibilities.
+After a short brief, my teammates and I used class-responsibility-collaboration cards to determine how the program would be structured to decide what classes we would need, their responsibilities, and how they would interact with each other.
 
 We then started pair-programming to write the first tests and make them pass.
 
