@@ -11,7 +11,7 @@ describe BikeContainer do
 	let(:broken_bike) { Bike.new.break! }
 
 	def fill_holder(holder)
-		holder.capacity.times { holder.dock(Bike.new)}
+		holder.capacity.times {holder.dock(Bike.new)}
 	end
 
 	it "should accept a bike" do	
