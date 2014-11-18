@@ -19,8 +19,8 @@ module BikeContainer
 	def dock(bike)	
 		raise NotABikeError unless bike.is_a? Bike
 		raise FullHolderError.new(message: "Sorry! This holder is full.") if full?
-		rescue NotABikeError => e
-		e.message
+		rescue NotABikeError => error
+		error.message
 	else
 		bikes << bike
 	end
@@ -30,10 +30,8 @@ module BikeContainer
 			raise NotABikeError unless bike.is_a? Bike
 			raise EmptyHolderError.new(message: "Sorry! This holder is empty.") if empty?
 		bikes.delete(bike)
-		rescue NotABikeError => e
-			e.message
-		rescue EmptyHolderError => e
-			 e.message
+		rescue EmptyHolderError => error
+			 error.message
 		end
 	end
 
